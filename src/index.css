@@ -1,13 +1,84 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+    --element-bg-color: #262A35;
+    --element-br: 8px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.event {
+    background: var(--element-bg-color);
+    border-radius: var(--element-br);
+}
+
+.tournament-item {
+    color: white;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.tournament-item footer {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.match-item {
+    color: white;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.match-item .left,
+.match-item .right {
+    display: flex;
+    align-items: center;
+
+    max-width: 40%;
+    word-spacing: normal;
+}
+
+.match-item .name {
+    font-weight: 300;
+    margin: 0 4px;
+    text-align: center;
+}
+
+.events-scroll {
+    display: flex;
+}
+
+.events-scroll .event {
+    width: 260px;
+    height: 160px;
+}
+
+.events-grid {
+    width: 100%;
+    height: 60vw;
+    display: grid;
+    grid-template-areas: ". right" ". right";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    align-items: stretch;
+    grid-gap: 10px;
+}
+
+.events-grid .event {}
+
+.events-grid .event.right {
+    grid-area: right;
+}
+
+.events-list {}
+
+.events-list .event {
+    margin-bottom: 16px;
 }
