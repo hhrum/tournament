@@ -43,23 +43,25 @@ function Home(props) {
 
             { /* Recently */}
             <Group header={<Header>Было недавно</Header>} separator="hide">
-                <CardGrid> 
-                    <Card size="l">
-                        <div className="event">
-                            <MatchItem />
-                        </div>
-                    </Card>
-                    <Card size="l">
-                        <div className="event">
-                            <MatchItem />
-                        </div>
-                    </Card>
-                    <Card size="l">
-                        <div className="event">
-                            <MatchItem />
-                        </div>
-                    </Card>
-                </CardGrid>
+                <Div>
+                    <CardGrid>
+                        <Card size="l">
+                            <div className="event">
+                                <MatchItem />
+                            </div>
+                        </Card>
+                        <Card size="l">
+                            <div className="event">
+                                <MatchItem />
+                            </div>
+                        </Card>
+                        <Card size="l">
+                            <div className="event">
+                                <MatchItem />
+                            </div>
+                        </Card>
+                    </CardGrid>
+                </Div>
             </Group>
         </Panel >
     );

@@ -3,6 +3,10 @@
     --element-br: 8px;
 }
 
+.Div>.CardGrid {
+    padding: 0;
+}
+
 .text_bold {
     font-size: 14px;
     font-weight: bold;
@@ -126,7 +130,7 @@
 .tournament-item footer .left {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
 }
 
 .event {
