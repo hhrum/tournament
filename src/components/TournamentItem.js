@@ -1,8 +1,9 @@
+import { Subhead, Text } from '@vkontakte/vkui';
 import React from 'react'
 
 import MatchItem from './MatchItem'
 
-const image_url = "https://media.kg-portal.ru/games/v/valorant/posters/valorant_3.jpg";
+const image_url = "https://wallpaperaccess.com/full/1607428.jpg";
 
 function TournamentItem({ events }) {
 
@@ -21,11 +22,11 @@ function TournamentItem({ events }) {
             <div className="tournament-item__info">
                 <footer>
                     <div className="left">
-                        <div className="tournament-name text_bold">FTP</div>
-                        <div className="text text_tine">Valorant</div>
+                        <Text weight="semibold">Любительский матч</Text>
+                        <Subhead weight="regular">FIFA 2020</Subhead>
                     </div>
                     <div className="right text_bold">
-                        Text
+                        <Subhead weight="regular">XX/XX</Subhead>
                     </div>
                 </footer>
                 <div className="item__bg imem__bg_img">

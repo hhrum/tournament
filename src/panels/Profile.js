@@ -1,20 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Panel, PanelHeader, Div, Group, Avatar, RichCell, Button } from '@vkontakte/vkui'
 
-const image_url = "https://sun9-71.userapi.com/impg/nGHDkKAvXnf5vIGeVHxMc-S4i_i7ACaIjX7rDw/yUjydg7M64Y.jpg?size=1600x1600&quality=96&proxy=1&sign=a8e2dbc91a610d8c2039a74ec00ba7d6&type=album"
+function Profile({ id, user }) {
 
-function Profile(props) {
     return (
-        <Panel id={props.id}>
-            <PanelHeader separator={false}>user id</PanelHeader>
+        <Panel id={id}>
+            <PanelHeader separator={false}>ID{user.id}</PanelHeader>
             <Group>
                 <div className="profile-info">
                     <RichCell
-                        before={<Avatar size={72} src={image_url} />}
+                        before={<Avatar size={72} src={user.photo_100} />}
                         text="Разработчик"
                         caption=""
                     >
-                        Денис Джабаров
+                        {user.first_name} {user.last_name}
                         </RichCell>
                     <Div>
                         <Button size="xl" mode="secondary">

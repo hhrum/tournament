@@ -16,7 +16,7 @@ function Home(props) {
                 <HorizontalScroll>
                     <Div>
                         <div className="events-scroll">
-                            <div className="event">
+                            <div className="event" data-to="match" onClick={(e) => props.go(e)}>
                                 <MatchItem bg={<TournamentItem />} />
                             </div>
                         </div>

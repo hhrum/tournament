@@ -1,12 +1,11 @@
 * {
     --element-bg-color: #262A35;
     --element-br: 8px;
-
     --accent: #7B61FF;
     --background_content: #191A1F;
     --button_secondary_background: #262A35;
     --button_secondary_foreground: #7B61FF;
-    --header_alternate_background:  #191A1F;
+    --header_alternate_background: #191A1F;
     --header_text: #fff;
     --text_primary: #fff;
     --tabbar_active_icon: #7B61FF;
@@ -29,7 +28,6 @@
     box-sizing: border-box;
     width: 56px;
     height: 56px;
-    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,7 +36,6 @@
 .line-buttons .Button {
     background: linear-gradient(269.14deg, #B029A3 0%, #7B61FF 100%);
     border: none;
-    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,7 +89,6 @@
     display: flex;
     align-items: center;
     max-width: 40%;
-    word-spacing: normal;
 }
 
 .match-item .right {
@@ -148,7 +144,14 @@
     z-index: 1;
 }
 
+.event .tournament-item footer {
+    padding: 8px;
+}
+
 .tournament-item footer .left {
+    white-space: nowrap;
+    text-overflow: hidden;
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -222,11 +225,31 @@
     position: absolute;
     left: 0;
     top: 0;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     outline: none;
     border: none;
+}
+
+.match-event {
+    box-sizing: border-box;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.match-event .RichCell {
+    align-items: flex-start;
+}
+
+.match-event__user-info {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.match-event__user-info>*:last-child {
+    opacity: 0.8;
+    margin-left: 4px;
 }

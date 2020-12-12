@@ -1,9 +1,10 @@
 import React from 'react'
-import { Button, Div, Panel } from '@vkontakte/vkui'
+import { Button, Card, CardGrid, Div, Group, Header, Panel } from '@vkontakte/vkui'
 
 import MatchItem from '../components/MatchItem'
 import TournamentItem from '../components/TournamentItem'
-import { Icon28ArrowLeftOutline, Icon28ChevronBack, Icon28StoryOutline, Icon36StoryOutline } from '@vkontakte/icons'
+import { Icon28ChevronBack, Icon36StoryOutline } from '@vkontakte/icons'
+import MatchEvent from '../components/MatchEvent'
 
 
 function Match({ id, go }) {
@@ -24,6 +25,23 @@ function Match({ id, go }) {
                     </div>
                 </div>
             </Div>
+
+            <Group header={<Header>События матча</Header>}>
+                <Div>
+                    <CardGrid>
+                        <Card size="l">
+                            <div className="event">
+                                <MatchEvent />
+                            </div>
+                        </Card>
+                        <Card size="l">
+                            <div className="event">
+                                <MatchEvent />
+                            </div>
+                        </Card>
+                    </CardGrid>
+                </Div>
+            </Group>
         </Panel>
     )
 }

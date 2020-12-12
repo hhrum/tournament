@@ -5,7 +5,7 @@ import Home from '../panels/Home'
 import Match from '../panels/Match'
 
 function HomeView({ id }) {
-    const [activePanel, setActivePanel] = useState("match")
+    const [activePanel, setActivePanel] = useState("home")
 
     const go = (e) => {
         setActivePanel(e.currentTarget.dataset.to)
