@@ -6,7 +6,7 @@ const image_url = "https://sun9-71.userapi.com/impg/nGHDkKAvXnf5vIGeVHxMc-S4i_i7
 function Profile(props) {
     return (
         <Panel id={props.id}>
-            <PanelHeader>user id</PanelHeader>
+            <PanelHeader separator={false}>user id</PanelHeader>
             <Group>
                 <div className="profile-info">
                     <RichCell
@@ -17,9 +17,9 @@ function Profile(props) {
                         Денис Джабаров
                         </RichCell>
                     <Div>
-                        <Button size="xl">
+                        <Button size="xl" mode="secondary">
                             Редактировать
-                            </Button>
+                        </Button>
                     </Div>
                 </div>
             </Group>

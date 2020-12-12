@@ -1,25 +1,51 @@
 * {
     --element-bg-color: #262A35;
     --element-br: 8px;
+
+    --accent: #7B61FF;
+    --background_content: #191A1F;
+    --button_secondary_background: #262A35;
+    --button_secondary_foreground: #7B61FF;
+    --header_alternate_background:  #191A1F;
+    --header_text: #fff;
+    --text_primary: #fff;
+    --tabbar_active_icon: #7B61FF;
+    --separator_common: #262A35;
 }
 
 .Div>.CardGrid {
     padding: 0;
 }
 
-.text_bold {
-    font-size: 14px;
-    font-weight: bold;
+.line-buttons {
+    display: flex;
 }
 
-.text_regular {
-    font-weight: normal;
-    font-size: 14px;
+.line-buttons>* {
+    margin: 0 4px;
 }
 
-.text_tine {
-    font-size: 12px;
-    font-weight: 300;
+.squar-button>* {
+    box-sizing: border-box;
+    width: 56px;
+    height: 56px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.line-buttons .Button {
+    background: linear-gradient(269.14deg, #B029A3 0%, #7B61FF 100%);
+    border: none;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.PanelHeader__in {
+    background-color: var(--background_content);
 }
 
 .item__bg {
@@ -73,15 +99,10 @@
     flex-direction: row-reverse;
 }
 
-.match-item .match-item__info {
-    font-size: 18px;
-    font-weight: bold;
-}
-
 .match-item .name {
     font-size: 12px;
     font-weight: 300;
-    margin: 0 8px;
+    margin: 8px;
     text-align: center;
 }
 
@@ -179,4 +200,33 @@
 
 .profile-info .RichCell__in {
     justify-content: start;
+}
+
+/* Match */
+
+.match-header {
+    height: 60vw;
+    position: relative;
+}
+
+.match-header .match-item_big {
+    height: 100%;
+    padding: 0 18%;
+}
+
+.match-header .back {
+    width: 60px;
+    height: 60px;
+    color: white;
+    background: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    outline: none;
+    border: none;
 }
