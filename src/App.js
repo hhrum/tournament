@@ -6,7 +6,7 @@ import bridge from '@vkontakte/vk-bridge';
 
 import Home from './panels/Home';
 import Profile from './panels/Profile';
-import Events from './panels/Events';
+import MyEvents from './panels/MyEvents';
 
 function App() {
     const [activeStory, setActiveStory] = useState("home");
@@ -23,8 +23,8 @@ function App() {
                 ><Icon28HomeOutline /></TabbarItem>
                 <TabbarItem
                     onClick={(e) => setActiveStory(e.currentTarget.dataset.story)}
-                    selected={activeStory === 'events'}
-                    data-story="events"
+                    selected={activeStory === 'my_events'}
+                    data-story="my_events"
                 ><Icon28GameOutline/></TabbarItem>
                 <TabbarItem
                     onClick={(e) => setActiveStory(e.currentTarget.dataset.story)}
@@ -36,8 +36,8 @@ function App() {
             <View id="home" activePanel="home">
                 <Home id="home" />
             </View>
-            <View id="events" activePanel="events">
-                <Events id="events" />
+            <View id="my_events" activePanel="my_events">
+                <MyEvents id="my_events" />
             </View>
             <View id="profile" activePanel="profile">
                 <Profile id="profile" />

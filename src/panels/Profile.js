@@ -8,22 +8,20 @@ function Profile(props) {
         <Panel id={props.id}>
             <PanelHeader>user id</PanelHeader>
             <Group>
-                <Div>
-                    <div className="profile-info">
-                        <RichCell
-                            before={<Avatar size={72} src={image_url} />}
-                            text="Разработчик"
-                            caption=""
-                        >
-                            Денис Джабаров
+                <div className="profile-info">
+                    <RichCell
+                        before={<Avatar size={72} src={image_url} />}
+                        text="Разработчик"
+                        caption=""
+                    >
+                        Денис Джабаров
                         </RichCell>
-                        <Div>
-                            <Button size="xl">
-                                Редактировать
-                            </Button>   
-                        </Div>
-                    </div>
-                </Div>
+                    <Div>
+                        <Button size="xl">
+                            Редактировать
+                            </Button>
+                    </Div>
+                </div>
             </Group>
         </Panel>
     )

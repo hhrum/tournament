@@ -9,16 +9,18 @@
     "@vkontakte/icons": "^1.65.0",
     "@vkontakte/vk-bridge": "^2.3.0",
     "@vkontakte/vkui": "^3.13.2",
+    "gh-pages": "^3.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
   },
+  "homepage": "https://hhrum.github.io/tournament/",
   "scripts": {
     "start": "cross-env PORT=10888 HTTPS=true react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

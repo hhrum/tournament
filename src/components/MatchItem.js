@@ -6,7 +6,7 @@ const image_url = "https://sun9-71.userapi.com/impg/nGHDkKAvXnf5vIGeVHxMc-S4i_i7
 function MatchItem({ bg }) {
     var background;
     var classes = ["match-item"]
-    
+
     if (bg) {
         background = <div className="item__bg">{bg}</div>
         classes.push("match-item_big");
@@ -22,7 +22,9 @@ function MatchItem({ bg }) {
                 <div className="name">Team Name</div>
             </div>
             <div className="center">
-                1:1
+                <div className="match-item__info">
+                    1:1
+                </div>
             </div>
             <div className="right">
                 <Avatar size={48} src={image_url} />
