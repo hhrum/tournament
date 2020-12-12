@@ -3,9 +3,28 @@
     --element-br: 8px;
 }
 
-.event {
-    background: var(--element-bg-color);
-    border-radius: var(--element-br);
+.item__bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.item__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.imem__bg_img::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba(136, 136, 136, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 
 .tournament-item {
@@ -15,6 +34,7 @@
     height: 100%;
     display: flex;
     flex-direction: column-reverse;
+    position: relative;
 }
 
 .tournament-item footer {
@@ -23,6 +43,7 @@
     padding: 16px;
     display: flex;
     justify-content: space-between;
+    z-index: 1;
 }
 
 .match-item {
@@ -34,21 +55,47 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
-.match-item .left,
-.match-item .right {
+.match-item .left, .match-item .right, .match-item .center {
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.match-item .left, .match-item .right {
     display: flex;
     align-items: center;
-
     max-width: 40%;
     word-spacing: normal;
 }
 
+.match-item .right {
+    flex-direction: row-reverse;
+}
+
 .match-item .name {
+    font-size: 12px;
     font-weight: 300;
-    margin: 0 4px;
+    margin: 0 8px;
     text-align: center;
+}
+
+.match-item_big {
+    height: 200px;
+    max-height: 100%;
+}
+
+.match-item_big .left,
+.match-item_big .right {
+    flex-direction: column;
+}
+
+.event {
+    background: var(--element-bg-color);
+    border-radius: var(--element-br);
+    overflow: hidden;
 }
 
 .events-scroll {
@@ -58,6 +105,7 @@
 .events-scroll .event {
     width: 260px;
     height: 160px;
+    background-color: none;
 }
 
 .events-grid {
@@ -71,14 +119,23 @@
     grid-gap: 10px;
 }
 
-.events-grid .event {}
-
 .events-grid .event.right {
     grid-area: right;
 }
 
-.events-list {}
-
 .events-list .event {
     margin-bottom: 16px;
+}
+
+.subs {
+    padding: 0 8px;
+    display: flex;
+}
+
+.subs>* {
+    margin-right: 8px;
+}
+
+.profile-info .RichCell__in {
+    justify-content: start;
 }

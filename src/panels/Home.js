@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel, PanelHeader, HorizontalScroll, Div, Header, Group } from '@vkontakte/vkui';
+import { Panel, PanelHeader, HorizontalScroll, Div, Header, Group, CardGrid, Card } from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
 
 import TournamentItem from '../components/TournamentItem'
@@ -12,12 +12,12 @@ function Home(props) {
             <PanelHeader>Турнир</PanelHeader>
 
             { /* Now */}
-            <Group header={<Header>Прямо сейчас</Header>} >
+            <Group header={<Header>Прямо сейчас</Header>} separator="hide">
                 <HorizontalScroll>
                     <Div>
                         <div className="events-scroll">
                             <div className="event">
-                                <TournamentItem />
+                                <MatchItem bg={<TournamentItem />} />
                             </div>
                         </div>
                     </Div>
@@ -25,7 +25,7 @@ function Home(props) {
             </Group>
 
             { /* Soon */}
-            <Group header={<Header>Скоро</Header>}>
+            <Group header={<Header>Скоро</Header>} separator="hide">
                 <Div>
                     <div className="events-grid">
                         <div className="event">
@@ -42,21 +42,24 @@ function Home(props) {
             </Group>
 
             { /* Recently */}
-            <Group header={<Header>Было недавно</Header>}>
-
-                <Div>
-                    <div className="events-list">
+            <Group header={<Header>Было недавно</Header>} separator="hide">
+                <CardGrid> 
+                    <Card size="l">
                         <div className="event">
                             <MatchItem />
                         </div>
+                    </Card>
+                    <Card size="l">
                         <div className="event">
                             <MatchItem />
                         </div>
+                    </Card>
+                    <Card size="l">
                         <div className="event">
                             <MatchItem />
                         </div>
-                    </div>
-                </Div>
+                    </Card>
+                </CardGrid>
             </Group>
         </Panel >
     );
