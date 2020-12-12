@@ -21,15 +21,16 @@ function TournamentItem({ events }) {
         <div className={classes.join(" ")}>
             <div className="tournament-item__info">
                 <footer>
-                    <div className="left">
+                    <div className="top">
                         <Text weight="semibold">Любительский матч</Text>
-                        <Subhead weight="regular">FIFA 2020</Subhead>
                     </div>
-                    <div className="right text_bold">
+                    <div className="bottom">
+                        <Subhead weight="regular">FIFA 2020</Subhead>
                         <Subhead weight="regular">XX/XX</Subhead>
                     </div>
                 </footer>
                 <div className="item__bg imem__bg_img">
+                    <div className="item__bg-shadow"></div>
                     <img src={image_url} alt="" />
                 </div>
             </div>

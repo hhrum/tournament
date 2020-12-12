@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Card, CardGrid, Div, Group, Header, Panel } from '@vkontakte/vkui'
+import { Avatar, Button, Card, CardGrid, Div, Group, Header, Panel, Text } from '@vkontakte/vkui'
 
 import MatchItem from '../components/MatchItem'
 import TournamentItem from '../components/TournamentItem'
@@ -26,7 +26,7 @@ function Match({ id, go }) {
                 </div>
             </Div>
 
-            <Group header={<Header>События матча</Header>}>
+            <Group header={<Header>События матча</Header>} separator="hide">
                 <Div>
                     <CardGrid>
                         <Card size="l">
@@ -42,6 +42,27 @@ function Match({ id, go }) {
                     </CardGrid>
                 </Div>
             </Group>
+
+            <Group header={<Header>Состав команд</Header>}>
+                <Div>
+                    <div className="teams-info">
+                        <div className="teams-info__teams">
+                            <div className="teams-info__team">
+                                <Avatar size={56} />
+                                <Text>Игрок</Text>
+                            </div>
+                            <div className="teams-info__team">
+                                <Avatar size={56} />
+                                <Text>Игрок</Text>
+                            </div>
+                        </div>
+                    </div>
+                </Div>
+            </Group>
+
+            <Div>
+                <Button size="xl" stretched>Перейти к турниру</Button>
+            </Div>
         </Panel>
     )
 }
