@@ -1,5 +1,5 @@
-import React from 'react'
-import { Avatar, Button, Card, CardGrid, Div, Group, Header, Panel, Text } from '@vkontakte/vkui'
+import React, { useState } from 'react'
+import { Alert, Avatar, Button, Card, CardGrid, Div, Group, Header, Panel, Text } from '@vkontakte/vkui'
 
 import MatchItem from '../components/MatchItem'
 import TournamentItem from '../components/TournamentItem'
@@ -8,6 +8,7 @@ import MatchEvent from '../components/MatchEvent'
 
 
 function Match({ id, go }) {
+
     return (
         <Panel id={id}>
             <header className="match-header">
@@ -61,7 +62,7 @@ function Match({ id, go }) {
             </Group>
 
             <Div>
-                <Button size="xl" stretched>Перейти к турниру</Button>
+                <Button size="xl" stretched data-to="tournament" onClick={(e) => go(e)}>Перейти к турниру</Button>
             </Div>
         </Panel>
     )

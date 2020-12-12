@@ -13,6 +13,10 @@
     --separator_common: #262A35;
 }
 
+.Alert::before {
+    background-color: var(--background_content);
+}
+
 .Div>.CardGrid {
     padding: 0;
 }
@@ -69,7 +73,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: linear-gradient(180deg, rgba(136, 136, 136, 0) 20%, rgba(0, 0, 0, .8) 100%);
+    background: linear-gradient(180deg, rgba(136, 136, 136, 0) 0%, rgba(0, 0, 0, 1) 100%);
 }
 
 .match-item {
@@ -108,6 +112,12 @@
 .match-item_big {
     height: 60vw;
     max-height: 100%;
+}
+
+.match-item_big .Avatar {
+    box-sizing: border-box;
+    border: 2px solid var(--tabbar_inactive_icon);
+    border-radius: 50%;
 }
 
 .match-item_big .left, .match-item_big .right {
@@ -259,7 +269,7 @@
     padding: 0 18%;
 }
 
-.match-header .back {
+header .back {
     width: 60px;
     height: 60px;
     color: white;
@@ -322,4 +332,14 @@
     margin: 0 8px;
     white-space: nowrap;
     text-overflow: hidden;
+}
+
+
+.tournament-header {
+    height: 60vw;
+    position: relative;
+}
+
+.tournament-info__description {
+    padding: 0 24px;
 }

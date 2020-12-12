@@ -25,11 +25,9 @@ function Profile({ id, user }) {
             </Group>
 
             <Group>
-                <Div>
-                    <Cell before={<Icon28DiamondOutline />}> 0 достижений</Cell>
-                    <Cell before={<Icon28GhostOutline />}>1 звание</Cell>
-                    <Cell before={<Icon28LikeOutline />}>0 подписок</Cell>
-                </Div>
+                <Cell before={<Icon28DiamondOutline />}> 0 достижений</Cell>
+                <Cell before={<Icon28GhostOutline />}>1 звание</Cell>
+                <Cell before={<Icon28LikeOutline />}>0 подписок</Cell>
             </Group>
 
             <Group header={<Header>Друзей в приложении: </Header>}>
@@ -39,7 +37,7 @@ function Profile({ id, user }) {
                             <div className="friends-item friends-item__add">
                                 <Icon28UserAddOutline />
                             </div>
-                        </div> 
+                        </div>
                     </Div>
                 </HorizontalScroll>
             </Group>
