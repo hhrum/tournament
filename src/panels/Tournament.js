@@ -4,12 +4,12 @@ import TournamentItem from '../components/TournamentItem'
 import { Icon28ChevronBack } from '@vkontakte/icons'
 import MatchItem from '../components/MatchItem'
 
-function Tournament({ id, go, goBack }) {
+function Tournament({ id, view, go, goBack }) {
     return (
         <Panel id={id}>
             <header className="tournament-header">
                 <TournamentItem />
-                <button className="back" data-to="match" onClick={(e) => goBack()}>
+                <button className="back" data-view={view} onClick={(e) => goBack(e)}>
                     <Icon28ChevronBack />
                 </button>
             </header>

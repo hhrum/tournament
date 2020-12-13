@@ -7,13 +7,13 @@ import { Icon28ChevronBack, Icon36StoryOutline } from '@vkontakte/icons'
 import MatchEvent from '../components/MatchEvent'
 
 
-function Match({ id, go, goBack }) {
+function Match({ id, view, go, goBack }) {
 
     return (
         <Panel id={id}>
             <header className="match-header">
                 <MatchItem bg={<TournamentItem />} />
-                <button className="back" onClick={(e) => goBack()}>
+                <button className="back" data-view={view} onClick={(e) => goBack(e)}>
                     <Icon28ChevronBack />
                 </button>
             </header>
@@ -62,7 +62,7 @@ function Match({ id, go, goBack }) {
             </Group>
 
             <Div>
-                <Button size="xl" stretched data-to="tournament" onClick={(e) => go(e)}>Перейти к турниру</Button>
+                <Button size="xl" stretched data-view={view} data-to="tournament" onClick={(e) => go(e)}>Перейти к турниру</Button>
             </Div>
         </Panel>
     )

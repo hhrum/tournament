@@ -5,11 +5,15 @@ import observation from '../img/observation.svg'
 import explorer from '../img/explorer.svg'
 import gamepad from '../img/gamepad.svg'
 
-function Achievements({ id, goBack }) {
+function Achievements({ id, view, goBack }) {
     return (
         <Panel id={id}>
 
-            <PanelHeader left={<PanelHeaderBack onClick={() => goBack()} />} separator={false} >Ваши достижения</PanelHeader>
+            <PanelHeader left=
+                {<PanelHeaderBack data-view={view} onClick={(e) => goBack(e)} />}
+                separator={false} >
+                Ваши достижения
+            </PanelHeader>
             <Group>
                 <Div>
                     <div className="achievement-grid">

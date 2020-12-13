@@ -5,7 +5,7 @@ import '@vkontakte/vkui/dist/vkui.css';
 import TournamentItem from '../components/TournamentItem'
 import MatchItem from '../components/MatchItem'
 
-function Home({ id, go }) {
+function Home({ id, view, go }) {
 
     return (
         <Panel id={id}>
@@ -16,7 +16,7 @@ function Home({ id, go }) {
                 <HorizontalScroll>
                     <Div>
                         <div className="events-scroll">
-                            <div className="event" data-to="match" onClick={(e) => go(e)}>
+                            <div className="event" data-view={view} data-to="match" onClick={(e) => go(e)}>
                                 <MatchItem bg={<TournamentItem />} />
                             </div>
                         </div>
@@ -46,7 +46,7 @@ function Home({ id, go }) {
                 <Div>
                     <CardGrid>
                         <Card size="l">
-                            <div className="event" data-to="tournament" onClick={(e) => go(e)}>
+                            <div className="event" data-view={view} data-to="tournament" onClick={(e) => go(e)}>
                                 <TournamentItem events={{}} />
                             </div>
                         </Card>

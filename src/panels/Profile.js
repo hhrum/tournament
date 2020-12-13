@@ -2,7 +2,7 @@ import React from 'react'
 import { Panel, PanelHeader, Div, Group, Avatar, RichCell, Cell, Button, Header, HorizontalScroll } from '@vkontakte/vkui'
 import { Icon28DiamondOutline, Icon28GhostOutline, Icon28LikeOutline, Icon28UserAddOutline } from '@vkontakte/icons'
 
-function Profile({ id, user, go }) {
+function Profile({ id, user, view, go }) {
 
     return (
         <Panel id={id}>
@@ -10,7 +10,7 @@ function Profile({ id, user, go }) {
             <Group>
                 <div className="profile-info">
                     <RichCell
-                        before={<Avatar size={72} src={user.photo_100} />}
+                        before={<Avatar size={72} src={user.photo_100 ? user.photo_100 : ""} />}
                         text="Разработчик"
                         caption=""
                     >
@@ -27,7 +27,9 @@ function Profile({ id, user, go }) {
             <Group>
                 <Cell
                     before={<Icon28DiamondOutline />}
-                    data-to="achievements" onClick={(e) => go(e)}> 0 достижений</Cell>
+                    data-view={view}
+                    data-to="achievements" 
+                    onClick={(e) => go(e)}> 0 достижений</Cell>
                 <Cell before={<Icon28GhostOutline />}>1 звание</Cell>
                 <Cell before={<Icon28LikeOutline />}>0 подписок</Cell>
             </Group>
