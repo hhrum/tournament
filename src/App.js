@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Alert, ConfigProvider, Epic, Tabbar, TabbarItem } from '@vkontakte/vkui';
+import { Alert, ConfigProvider, Epic, ScreenSpinner, Tabbar, TabbarItem } from '@vkontakte/vkui';
 import { Icon28GameOutline, Icon28HomeOutline, Icon28LikeOutline, Icon28Profile } from '@vkontakte/icons';
 import '@vkontakte/vkui/dist/vkui.css';
 import bridge from '@vkontakte/vk-bridge';
@@ -9,8 +9,10 @@ import UserInfoContext from './contexts/UserInfoContext';
 import HomeView from './views/HomeView'
 import FavoriteEventsView from './views/FavoriteEventsView';
 import ProfileView from './views/ProfileView';
+import ControllerView from './views/ControllerView';
 
 function App() {
+    const apiUrl = "https://laravel-tournament-backend.herokuapp.com/"
 
     const [user, setUser] = useState({})
     const [userAchievements, setUserAchievements] = useState([])
@@ -20,6 +22,7 @@ function App() {
     const [panelsStory, setPanelsStory] = useState({
         home: ["home"],
         favorite_events: ["favorite"],
+        controller: ["controller"],
         profile: ["profile"]
     })
     const [activePanel, setActivePanel] = useState(panelsStory.home[panelsStory.home.length - 1])
@@ -75,15 +78,28 @@ function App() {
         window.addEventListener('popstate', () => goBack());
         bridge.send('VKWebAppInit');
         bridge.send("VKWebAppGetUserInfo");
+
+        //test
+        getData(`${apiUrl}/user${window.location.search}`)
+            .then((response) => response.json())
+            .then((response) => setUserAchievements(response.user.achievements))
     }, [])
 
-    // async function postData(url = '', data = {}) {
-    //     const response = await fetch(url, {
-    //         method: 'POST',
-    //         body: JSON.stringify(data)
-    //     });
-    //     return await response.json();
-    // }
+    const postData = (url = '', data = {}) => {
+        return fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+    }
+
+    const getData = (url = '', data = {}) => {
+        return fetch(url, {
+            method: 'GET',
+        });
+    }
 
     bridge.subscribe((e) => {
         switch (e.detail.type) {
@@ -98,27 +114,35 @@ function App() {
 
     const addAchievement = (achievement) => {
         if (userAchievements.includes(achievement)) return
+        setPopout(<ScreenSpinner />)
 
-        userAchievements.push(achievement)
-        setUserAchievements(userAchievements)
+        postData(`${apiUrl}/achievement${window.location.search}`, {
+            achievement_name: achievement
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res)
+                userAchievements.push(achievement)
+                setUserAchievements(userAchievements)
 
-        setPopout(
-            <Alert
-                actions={[{
-                    title: 'Закрыть',
-                    autoclose: true,
-                    mode: 'cancel'
-                }, {
-                    title: 'Посмотреть',
-                    autoclose: true,
-                    action: () => go("achievements"),
-                }]}
-                onClose={() => setPopout(null)}
-            >
-                <h2>У вас новое достижение!</h2>
-                <p>Вы можете посмотреть свои достижения в окне профиля</p>
-            </Alert>
-        )
+                setPopout(
+                    <Alert
+                        actions={[{
+                            title: 'Закрыть',
+                            autoclose: true,
+                            mode: 'cancel'
+                        }, {
+                            title: 'Посмотреть',
+                            autoclose: true,
+                            action: () => go("achievements"),
+                        }]}
+                        onClose={() => setPopout(null)}
+                    >
+                        <h2>У вас новое достижение!</h2>
+                        <p>Вы можете посмотреть свои достижения в окне профиля</p>
+                    </Alert>
+                )
+            })
     }
 
     const userInfoContext = {
@@ -149,8 +173,9 @@ function App() {
                         </TabbarItem>
 
                         <TabbarItem
-                            selected={activeStory === 'game'}
-                            data-story="game"
+                            onClick={(e) => changeActiveTabbar(e)}
+                            selected={activeStory === 'controller'}
+                            data-story="controller"
                         >
                             <Icon28GameOutline />
                         </TabbarItem>
@@ -179,6 +204,9 @@ function App() {
                         popout={popout}
                         go={go}
                         goBack={goBack} />
+                    <ControllerView
+                        id="controller"
+                        activePanel={activePanel} />
                     <ProfileView
                         id="profile"
                         activePanel={activePanel}
