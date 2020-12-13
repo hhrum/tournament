@@ -1,23 +1,26 @@
 {
   "files": {
-    "main.css": "/tournament/static/css/main.b7420476.chunk.css",
-    "main.js": "/tournament/static/js/main.9fd6f4a8.chunk.js",
-    "main.js.map": "/tournament/static/js/main.9fd6f4a8.chunk.js.map",
+    "main.css": "/tournament/static/css/main.b9fb7f9c.chunk.css",
+    "main.js": "/tournament/static/js/main.5069021d.chunk.js",
+    "main.js.map": "/tournament/static/js/main.5069021d.chunk.js.map",
     "runtime-main.js": "/tournament/static/js/runtime-main.ef3a6d35.js",
     "runtime-main.js.map": "/tournament/static/js/runtime-main.ef3a6d35.js.map",
     "static/css/2.4df9e7ca.chunk.css": "/tournament/static/css/2.4df9e7ca.chunk.css",
-    "static/js/2.2983c1b0.chunk.js": "/tournament/static/js/2.2983c1b0.chunk.js",
-    "static/js/2.2983c1b0.chunk.js.map": "/tournament/static/js/2.2983c1b0.chunk.js.map",
+    "static/js/2.83fa0537.chunk.js": "/tournament/static/js/2.83fa0537.chunk.js",
+    "static/js/2.83fa0537.chunk.js.map": "/tournament/static/js/2.83fa0537.chunk.js.map",
     "index.html": "/tournament/index.html",
     "static/css/2.4df9e7ca.chunk.css.map": "/tournament/static/css/2.4df9e7ca.chunk.css.map",
-    "static/css/main.b7420476.chunk.css.map": "/tournament/static/css/main.b7420476.chunk.css.map",
-    "static/js/2.2983c1b0.chunk.js.LICENSE.txt": "/tournament/static/js/2.2983c1b0.chunk.js.LICENSE.txt"
+    "static/css/main.b9fb7f9c.chunk.css.map": "/tournament/static/css/main.b9fb7f9c.chunk.css.map",
+    "static/js/2.83fa0537.chunk.js.LICENSE.txt": "/tournament/static/js/2.83fa0537.chunk.js.LICENSE.txt",
+    "static/media/explorer.dcf903f9.svg": "/tournament/static/media/explorer.dcf903f9.svg",
+    "static/media/gamepad.997f4969.svg": "/tournament/static/media/gamepad.997f4969.svg",
+    "static/media/observation.5cb6c302.svg": "/tournament/static/media/observation.5cb6c302.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.ef3a6d35.js",
     "static/css/2.4df9e7ca.chunk.css",
-    "static/js/2.2983c1b0.chunk.js",
-    "static/css/main.b7420476.chunk.css",
-    "static/js/main.9fd6f4a8.chunk.js"
+    "static/js/2.83fa0537.chunk.js",
+    "static/css/main.b9fb7f9c.chunk.css",
+    "static/js/main.5069021d.chunk.js"
   ]
 }
