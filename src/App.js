@@ -12,7 +12,7 @@ import ProfileView from './views/ProfileView';
 import ControllerView from './views/ControllerView';
 
 function App() {
-    const apiUrl = "https://laravel-tournament-backend.herokuapp.com/"
+    const apiUrl = "https://laravel-tournament-backend.herokuapp.com/api"
 
     const [user, setUser] = useState({})
     const [userAchievements, setUserAchievements] = useState([])
