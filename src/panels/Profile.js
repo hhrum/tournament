@@ -1,6 +1,6 @@
 import React from 'react'
 import { Panel, PanelHeader, Div, Group, Avatar, RichCell, Cell, Button, Header, HorizontalScroll } from '@vkontakte/vkui'
-import { Icon28DiamondOutline, Icon28GhostOutline, Icon28LikeOutline, Icon28UserAddedOutline, Icon28UserAddOutline, Icon56UserAddOutline } from '@vkontakte/icons'
+import { Icon28DiamondOutline, Icon28GhostOutline, Icon28LikeOutline, Icon28UserAddOutline } from '@vkontakte/icons'
 
 function Profile({ id, user, go }) {
 

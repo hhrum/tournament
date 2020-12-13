@@ -53,6 +53,10 @@
     background-color: var(--background_content);
 }
 
+.PanelHeaderButton {
+    color: #fff;
+}
+
 .item__bg {
     position: absolute;
     top: 0;
@@ -262,7 +266,7 @@
 }
 
 .achievement-column {
-    width: 100%;
+    width: 50%;
     margin: 0 8px;
     display: flex;
     flex-direction: column;
@@ -273,10 +277,11 @@
 }
 
 .achievement-item {
+    box-sizing: border-box;
     background-color: var(--element-bg-color);
     width: 100%;
-    height: 60vw;
     margin: 8px 0;
+    padding: 24px 8px;
     border-radius: 16px;
 
     display: flex;
@@ -285,9 +290,25 @@
     justify-content: center;
 }
 
-.achievement-item__emoji {
-    font-size: 20vw;
+.achievement-item__img {
+    width: 28vw;
+    margin-bottom: 16px;
 } 
+
+.achievement-item__img img {
+    width: 100%;
+}
+
+.achievement-item__title .Title {
+    max-width: 100%;
+}
+
+.achievement-item__text {
+    opacity: 0.8;
+    max-width: 80%;
+    white-space: wrap;
+    text-align: center;
+}
 
 /* Match */
 

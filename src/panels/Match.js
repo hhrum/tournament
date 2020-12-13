@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Alert, Avatar, Button, Card, CardGrid, Div, Group, Header, Panel, Text } from '@vkontakte/vkui'
+import React from 'react'
+import { Avatar, Button, Card, CardGrid, Div, Group, Header, Panel, Text } from '@vkontakte/vkui'
 
 import MatchItem from '../components/MatchItem'
 import TournamentItem from '../components/TournamentItem'
@@ -7,13 +7,13 @@ import { Icon28ChevronBack, Icon36StoryOutline } from '@vkontakte/icons'
 import MatchEvent from '../components/MatchEvent'
 
 
-function Match({ id, go }) {
+function Match({ id, go, goBack }) {
 
     return (
         <Panel id={id}>
             <header className="match-header">
                 <MatchItem bg={<TournamentItem />} />
-                <button className="back" data-to="home" onClick={(e) => go(e)}>
+                <button className="back" onClick={(e) => goBack()}>
                     <Icon28ChevronBack />
                 </button>
             </header>

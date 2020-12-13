@@ -1,4 +1,4 @@
-import { Avatar, Headline, RichCell, Subhead, Text, Title } from "@vkontakte/vkui";
+import { Avatar, RichCell, Subhead } from "@vkontakte/vkui";
 import React from "react";
 
 function MatchEvent() {
