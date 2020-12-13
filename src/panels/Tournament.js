@@ -1,15 +1,24 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Card, CardGrid, Div, Group, Header, Panel, Text } from '@vkontakte/vkui'
-import TournamentItem from '../components/TournamentItem'
 import { Icon28ChevronBack } from '@vkontakte/icons'
+
+import UserInfoContext from '../contexts/UserInfoContext'
+
+import TournamentItem from '../components/TournamentItem'
 import MatchItem from '../components/MatchItem'
 
 function Tournament({ id, view, go, goBack }) {
+    const {addAchievement} = useContext(UserInfoContext)
+
+    useEffect(() => {
+        addAchievement("explorer")
+    }, [])
+
     return (
         <Panel id={id}>
             <header className="tournament-header">
                 <TournamentItem />
-                <button className="back" data-view={view} onClick={(e) => goBack(e)}>
+                <button className="back" onClick={() => goBack()}>
                     <Icon28ChevronBack />
                 </button>
             </header>

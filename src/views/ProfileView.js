@@ -7,7 +7,7 @@ import UserInfoContext from "../contexts/UserInfoContext";
 import Achievements from "../panels/Achievements";
 
 function ProfileView({ id, activePanel, history, go, goBack }) {
-    const user = useContext(UserInfoContext)
+    const {user, user_achievements} = useContext(UserInfoContext)
 
     return (
         <View
@@ -15,8 +15,8 @@ function ProfileView({ id, activePanel, history, go, goBack }) {
             activePanel={activePanel}
             history={history}
             onSwipeBack={goBack}>
-            <Profile id="profile" view={id} go={go} user={user} />
-            <Achievements id="achievements" view={id} goBack={goBack} />
+            <Profile id="profile" view={id} go={go} user={user} count_of_achievements={user_achievements.length} />
+            <Achievements id="achievements" user_achievements={user_achievements} view={id} goBack={goBack} />
         </View>
     )
 }

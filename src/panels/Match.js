@@ -62,7 +62,7 @@ function Match({ id, view, go, goBack }) {
             </Group>
 
             <Div>
-                <Button size="xl" stretched data-view={view} data-to="tournament" onClick={(e) => go(e)}>Перейти к турниру</Button>
+                <Button size="xl" stretched data-view={view} onClick={() => go("tournament")}>Перейти к турниру</Button>
             </Div>
         </Panel>
     )

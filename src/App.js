@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ConfigProvider, Epic, Tabbar, TabbarItem } from '@vkontakte/vkui';
+import { Alert, ConfigProvider, Epic, Tabbar, TabbarItem } from '@vkontakte/vkui';
 import { Icon28GameOutline, Icon28HomeOutline, Icon28LikeOutline, Icon28Profile } from '@vkontakte/icons';
 import '@vkontakte/vkui/dist/vkui.css';
 import bridge from '@vkontakte/vk-bridge';
@@ -12,10 +12,11 @@ import ProfileView from './views/ProfileView';
 
 function App() {
 
-    const [userInfoContext, setUserInfoContext] = useState({});
+    const [user, setUser] = useState({})
+    const [userAchievements, setUserAchievements] = useState([])
 
     const [activeStory, setActiveStory] = useState("home");
-
+    const [popout, setPopout] = useState(null)
     const [panelsStory, setPanelsStory] = useState({
         home: ["home"],
         favorite_events: ["favorite"],
@@ -37,17 +38,18 @@ function App() {
     }
 
     /// Переход на другую панель
-    const go = (e) => {
-        updatePanelsStory(e.currentTarget.dataset.view, (line) => {
-            window.history.pushState({ panel: e.currentTarget.dataset.to }, e.currentTarget.dataset.to)
-            line.push(e.currentTarget.dataset.to)
+    const go = (panel) => {
+        const view = activeStory
+        updatePanelsStory(view, (line) => {
+            window.history.pushState({ panel: panel }, panel)
+            line.push(panel)
             return line
         })
     }
 
     /// Возврат к прошлой
-    const goBack = (e) => {
-        const view = e ? e.currentTarget.dataset.view : activeStory
+    const goBack = () => {
+        const view = activeStory
         updatePanelsStory(view, (line) => {
             if (line.length !== 0) line.pop()
             else bridge.send("VKWebAppClose", { "status": "success" });
@@ -83,20 +85,10 @@ function App() {
     //     return await response.json();
     // }
 
-    useEffect(() => {
-        bridge.send('VKWebAppInit');
-        bridge.send("VKWebAppGetUserInfo");
-
-        fetch("")
-            .then((response) => {
-                console.log(response)
-            })
-    }, [])
-
     bridge.subscribe((e) => {
         switch (e.detail.type) {
             case "VKWebAppGetUserInfoResult":
-                setUserInfoContext(e.detail.data)
+                setUser(e.detail.data)
                 break;
             default:
                 console.log(e)
@@ -104,6 +96,36 @@ function App() {
         }
     });
 
+    const addAchievement = (achievement) => {
+        if (userAchievements.includes(achievement)) return
+
+        userAchievements.push(achievement)
+        setUserAchievements(userAchievements)
+
+        setPopout(
+            <Alert
+                actions={[{
+                    title: 'Закрыть',
+                    autoclose: true,
+                    mode: 'cancel'
+                }, {
+                    title: 'Посмотреть',
+                    autoclose: true,
+                    action: () => go("achievements"),
+                }]}
+                onClose={() => setPopout(null)}
+            >
+                <h2>У вас новое достижение!</h2>
+                <p>Вы можете посмотреть свои достижения в окне профиля</p>
+            </Alert>
+        )
+    }
+
+    const userInfoContext = {
+        addAchievement: addAchievement,
+        user: user,
+        user_achievements: userAchievements
+    }
 
     return (
         <ConfigProvider isWebView={true}>
@@ -147,18 +169,21 @@ function App() {
                         id="home"
                         activePanel={activePanel}
                         history={panelsStory.home}
+                        popout={popout}
                         go={go}
                         goBack={goBack} />
                     <FavoriteEventsView
                         id="favorite_events"
                         activePanel={activePanel}
                         history={panelsStory.favorite_events}
+                        popout={popout}
                         go={go}
                         goBack={goBack} />
                     <ProfileView
                         id="profile"
                         activePanel={activePanel}
                         history={panelsStory.profile}
+                        popout={popout}
                         go={go}
                         goBack={goBack} />
 

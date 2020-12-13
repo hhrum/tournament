@@ -2,7 +2,7 @@ import React from 'react'
 import { Panel, PanelHeader, Div, Group, Avatar, RichCell, Cell, Button, Header, HorizontalScroll } from '@vkontakte/vkui'
 import { Icon28DiamondOutline, Icon28GhostOutline, Icon28LikeOutline, Icon28UserAddOutline } from '@vkontakte/icons'
 
-function Profile({ id, user, view, go }) {
+function Profile({ id, user, count_of_achievements, view, go }) {
 
     return (
         <Panel id={id}>
@@ -27,9 +27,9 @@ function Profile({ id, user, view, go }) {
             <Group>
                 <Cell
                     before={<Icon28DiamondOutline />}
+                    expandable 
                     data-view={view}
-                    data-to="achievements" 
-                    onClick={(e) => go(e)}> 0 достижений</Cell>
+                    onClick={(e) => go("achievements")}> {count_of_achievements} достижений</Cell>
                 <Cell before={<Icon28GhostOutline />}>1 звание</Cell>
                 <Cell before={<Icon28LikeOutline />}>0 подписок</Cell>
             </Group>

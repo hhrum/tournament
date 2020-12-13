@@ -34,7 +34,7 @@ function Favorite({id, view, go}) {
                 <Div>
                     <CardGrid>
                         <Card size="l">
-                            <div className="event" data-view={view} data-to="match" onClick={(e) => go(e)}>
+                            <div className="event" data-view={view} onClick={() => go("match")}>
                                 <MatchItem bg={<TournamentItem />} />
                             </div>
                         </Card>
@@ -47,7 +47,7 @@ function Favorite({id, view, go}) {
                 <Div>
                     <CardGrid>
                         <Card size="l">
-                            <div className="event" data-view={view} data-to="tournament" onClick={(e) => go(e)}>
+                            <div className="event" data-view={view} onClick={() => go("tournament")}>
                                 <TournamentItem events={{}} />
                             </div>
                         </Card>
